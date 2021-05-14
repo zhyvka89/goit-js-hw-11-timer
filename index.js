@@ -9,26 +9,18 @@ class CountdownTimer {
     constructor({selector, targetDate}) {
         this.selector = selector;
         this.targetDate = targetDate;
-        this.intervalID = null;
         this.start();
     }
+
     start() {
         const startTime = this.targetDate;
-        console.log(startTime);
         
-        this.intervalID = setInterval(() => {
+        setInterval(() => {
             const currentTime = Date.now();
             const deltaTime = startTime - currentTime;
             const time = this.getTime(deltaTime);
             updateMarkup(time);
-            console.log(time);
-            console.log(deltaTime);
-            console.log(currentTime);
         }, 1000);
-    }
-
-    stop() {
-
     }
 
     pad(value) {
@@ -42,20 +34,18 @@ class CountdownTimer {
         const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
         return { days, hours, mins, secs };
     }
-
-
 }
 
 function updateMarkup({ days, hours, mins, secs }) {
     refs.days.textContent = `${days}`;
     refs.hours.textContent = `${hours}`;
     refs.mins.textContent = `${mins}`;
-    refs.days.textContent = `${secs}`;
+    refs.secs.textContent = `${secs}`;
 }
 
 const countdownTimer = new CountdownTimer({
     selector: '#timer-1',
-    targetDate: new Date('May 17, 2021'),
+    targetDate: new Date('May 23, 2021'),
 })
 
 
