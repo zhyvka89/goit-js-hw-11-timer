@@ -1,0 +1,13 @@
+.timer {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding-top: 50px;
+}
+
+.field {
+  margin: 15px;
+  padding: 15px;
+  background-color: blueviolet;
+  border-radius: 4px;
+}
